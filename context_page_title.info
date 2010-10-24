@@ -1,0 +1,7 @@
+; $Id$
+name = "Context Page title"
+dependencies[] = "context"
+description = "TODO: Description of module"
+package = "Context"
+core = "6.x"
+

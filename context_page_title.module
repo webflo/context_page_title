@@ -1,0 +1,38 @@
+<?php
+// $Id$
+/**
+ * @file context_page_title.module
+ * TODO: Enter file description here.
+ */
+
+/**
+ * CTools plugin API hook for Context. Note that a proper entry in
+ * hook_ctools_plugin_api() must exist for this hook to be called.
+ */
+function context_page_title_context_plugins() {
+  $plugins = array();
+
+  $plugins['context_reaction_page_title'] = array(
+    'handler' => array(
+      'path' => drupal_get_path('module', 'context_page_title') .'/plugins',
+      'file' => 'context_reaction_page_title.inc',
+      'class' => 'context_reaction_page_title',
+      'parent' => 'context_reaction_theme',
+    ),
+  );
+  
+  return $plugins;
+}
+
+/**
+ * Alter the registry.
+ *
+ * Allows modules to alter the registry. Default plugins can be replaced by
+ * custom ones declared in hook_context_plugins().
+ *
+ * @param $registry
+ *   The registry, passed by reference.
+ */
+function context_page_title_context_registry_alter(&$registry) {
+  $registry['reactions']['theme']['plugin'] = 'context_reaction_page_title';
+}
